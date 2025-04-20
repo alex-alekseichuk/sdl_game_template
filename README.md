@@ -3,7 +3,7 @@ Project template for cross-platform C/C++ development.
 Tools:
 - cmake build tool
 - conan dependencies management
-- clion ide
+- clion ide, vim
 - gcc, msvc compilers
 
 ```bash
@@ -15,10 +15,10 @@ cd build
 # linux:
 cmake .. -G "Unix Makefiles" -DCMAKE_TOOLCHAIN_FILE="conan_toolchain.cmake" -DCMAKE_BUILD_TYPE=Release
 cmake --build .
-./compressor
+./2d_game
 
 # windows:
 cmake .. -G "Visual Studio 17 2022" -DCMAKE_TOOLCHAIN_FILE="conan_toolchain.cmake"
 cmake --build . --config Release
-Release\compressor.exe
+Release\2d_game.exe
 ```
