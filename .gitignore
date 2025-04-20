@@ -1,0 +1,63 @@
+# Build directories (CMake default and common custom ones)
+build/
+build-*/
+out/
+bin/
+lib/
+cmake-build-*
+CMakeFiles/
+CMakeCache.txt
+CMakeUserPresets.json
+cmake_install.cmake
+Makefile
+compile_commands.json
+
+# Ninja build files
+*.ninja
+.ninja_log
+.ninja_deps
+rules.ninja
+
+# Conan files (local cache/build)
+conanbuild/
+conaninfo.txt
+graph_info.json
+graph_info.binary.json
+*.lock
+*.conan
+
+# Compilation output
+*.o
+*.obj
+*.lo
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
+*.exe
+*.out
+
+# Clang/Compiler generated
+*.d
+
+# IDE specific
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS crap
+.DS_Store
+Thumbs.db
+
+# Test / logs / temporary
+Testing/
+CTestTestfile.cmake
+LastTest.log
+
+# Backup files
+*~
+*.swp
+*.bak
+*.tmp
