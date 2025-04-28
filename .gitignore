@@ -61,3 +61,5 @@ LastTest.log
 *.swp
 *.bak
 *.tmp
+
+.PVS-Studio
