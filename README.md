@@ -28,3 +28,8 @@ TODO:
 - logger instead of printf()
 - config
 - android app
+- smooth movement by pixel, instead of by cell jumping
+- scroll the view through the map
+- put the food in the rect of visibility with some space
+- M to toggle map in the bottom-right corner
+- direction control by click
