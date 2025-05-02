@@ -1,13 +1,32 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdint.h>
-#include "model.h"
+#include <stdio.h>
+#include "game.h"
+
+void spawn_food(Game* game) {
+    int valid;
+    do {
+        valid = 1;
+        game->food.x = rand() % (game->width);
+        game->food.y = rand() % (game->height);
+
+        for (int i = 0; i < game->snake.length; i++) {
+            if (game->food.x == game->snake.positions[i].x &&
+                game->food.y == game->snake.positions[i].y) {
+                valid = 0;
+                break;
+            }
+        }
+    } while (!valid);
+}
 
 Game *create_game(int width, int height) {
     srand(time(NULL));
 
     Game *game = (Game *)malloc(sizeof(Game));
     if (!game) {
+        printf("Can't allocate memory for Game\n");
         return NULL;
     }
 
@@ -19,7 +38,7 @@ Game *create_game(int width, int height) {
             RIGHT
     };
     spawn_food(game);
-    game->game_over = 0;
+    game->is_game_over = 0;
 
     return game;
 }
@@ -61,14 +80,14 @@ void update_game(Game *game, uint32_t current_time) {
             game->snake.positions[0].x >= game->width ||
             game->snake.positions[0].y < 0 ||
             game->snake.positions[0].y >= game->height) {
-            game->game_over = 1;
+            game->is_game_over = 1;
         }
 
         // check self collision
         for (int i = 1; i < game->snake.length; i++) {
             if (game->snake.positions[0].x == game->snake.positions[i].x &&
                 game->snake.positions[0].y == game->snake.positions[i].y) {
-                game->game_over = 1;
+                game->is_game_over = 1;
             }
         }
 
@@ -83,23 +102,6 @@ void update_game(Game *game, uint32_t current_time) {
 
         last_update = current_time;
     }
-}
-
-void spawn_food(Game* game) {
-    int valid;
-    do {
-        valid = 1;
-        game->food.x = rand() % (game->width);
-        game->food.y = rand() % (game->height);
-
-        for (int i = 0; i < game->snake.length; i++) {
-            if (game->food.x == game->snake.positions[i].x &&
-                    game->food.y == game->snake.positions[i].y) {
-                valid = 0;
-                break;
-            }
-        }
-    } while (!valid);
 }
 
 void direct_snake(Game *game, Direction direction) {
@@ -117,4 +119,8 @@ void direct_snake(Game *game, Direction direction) {
             if (game->snake.direction != LEFT) game->snake.direction = RIGHT;
             break;
     }
+}
+
+void game_over(Game *game) {
+    game->is_game_over = 1;
 }

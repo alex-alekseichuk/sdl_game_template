@@ -22,3 +22,6 @@ cmake .. -G "Visual Studio 17 2022" -DCMAKE_TOOLCHAIN_FILE="conan_toolchain.cmak
 cmake --build . --config Release
 Release\2d_game.exe
 ```
+
+TODO:
+- logger instead of printf()

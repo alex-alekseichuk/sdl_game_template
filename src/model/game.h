@@ -27,13 +27,14 @@ typedef struct {
     int height;
     Snake snake;
     Position food;
-    int game_over;
+    int is_game_over;
 } Game;
 
 extern Game *create_game(int width, int height);
 extern void release_game(Game *game);
 extern void update_game(Game *game, uint32_t current_time);
-extern void spawn_food(Game* game);
+
 extern void direct_snake(Game *game, Direction direction);
+extern void game_over(Game *game);
 
 #endif
