@@ -6,6 +6,7 @@ struct GameView {
     const Game *game;
     SDL_Window* window;
     SDL_Renderer *renderer;
+    bool is_full_screen;
 };
 
 GameView *create_game_view(const Game *game) {
@@ -44,6 +45,7 @@ GameView *create_game_view(const Game *game) {
         .game = game,
         .window = window,
         .renderer = renderer,
+        .is_full_screen = false,
     };
 
     return gameView;
@@ -85,4 +87,13 @@ void draw_game(GameView *gameView) {
     SDL_RenderFillRect(gameView->renderer, &food_rect);
 
     SDL_RenderPresent(gameView->renderer);
+}
+
+void toggle_full_screen(GameView *gameView) {
+    if (gameView->is_full_screen) {
+        SDL_SetWindowFullscreen(gameView->window, 0);
+    } else {
+        SDL_SetWindowFullscreen(gameView->window, SDL_WINDOW_FULLSCREEN);
+    }
+    gameView->is_full_screen = !gameView->is_full_screen;
 }

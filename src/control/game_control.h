@@ -1,12 +1,16 @@
 #ifndef SNAKE_GAME_CONTROL_H
 #define SNAKE_GAME_CONTROL_H
 
-#include "../model/game.h"
+typedef enum {
+    CONTROL_NONE = 0,
+    CONTROL_QUIT,
+    CONTROL_FULL_SCREEN,
+    CONTROL_UP,
+    CONTROL_DOWN,
+    CONTROL_LEFT,
+    CONTROL_RIGHT
+} ControlEvent;
 
-typedef struct GameControl GameControl;
-
-extern GameControl *create_game_control(const Game *game);
-extern void release_game_control(GameControl *gameControl);
-extern void process(GameControl *gameControl);
+extern ControlEvent poll_event();
 
 #endif

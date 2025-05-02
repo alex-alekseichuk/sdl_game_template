@@ -1,5 +1,5 @@
-#ifndef INC_2D_GAME_GAME_VIEW_H
-#define INC_2D_GAME_GAME_VIEW_H
+#ifndef SNAKE_GAME_GAME_VIEW_H
+#define SNAKE_GAME_GAME_VIEW_H
 
 #include <stdio.h>
 #include "../model/game.h"
@@ -12,6 +12,9 @@ typedef struct GameView GameView;
 
 extern GameView *create_game_view(const Game *game);
 extern void release_game_view(GameView *gameView);
+
 extern void draw_game(GameView *gameView);
+
+extern void toggle_full_screen(GameView *gameView);
 
 #endif

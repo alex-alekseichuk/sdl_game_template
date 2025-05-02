@@ -1,5 +1,5 @@
-#ifndef INC_2D_GAME_MODEL_H
-#define INC_2D_GAME_MODEL_H
+#ifndef SNAKE_GAME_H
+#define SNAKE_GAME_H
 
 #define MAX_SNAKE_LENGTH 400
 #define MOVE_INTERVAL 100
@@ -35,6 +35,5 @@ extern void release_game(Game *game);
 extern void update_game(Game *game, uint32_t current_time);
 
 extern void direct_snake(Game *game, Direction direction);
-extern void game_over(Game *game);
 
 #endif

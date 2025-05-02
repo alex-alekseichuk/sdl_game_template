@@ -24,4 +24,7 @@ Release\2d_game.exe
 ```
 
 TODO:
+
 - logger instead of printf()
+- config
+- android app

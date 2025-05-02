@@ -120,7 +120,3 @@ void direct_snake(Game *game, Direction direction) {
             break;
     }
 }
-
-void game_over(Game *game) {
-    game->is_game_over = 1;
-}
